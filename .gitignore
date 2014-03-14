@@ -4,6 +4,7 @@
 .htaccess
 .htpasswd
 .buildpath
+composer.phar
 composer.lock
 data/cache
 data/data
@@ -28,4 +29,8 @@ vendor/socalnick/
 vendor/hybridauth/
 vendor/ZF2FileUploadExamples/
 vendor/ZF2/
-vendor.autoload.php
+vendor/autoload.php
+vendor/zendframework/
+vendor/ZendSkeletonApplication/
+vendor/README.md
+ZendSkeletonApplication/
