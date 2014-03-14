@@ -25,6 +25,7 @@ class FileRepository extends EntityRepository
 	{
 		$sql = 'SELECT f FROM Godana\Entity\File f WHERE f.url LIKE \'%/users/default/%\'';
 		$query = $this->_em->createQuery($sql);
-		return $query->getSingleResult();
+		$query->setMaxResults(1);
+		return $query->getResult();
 	}
 }

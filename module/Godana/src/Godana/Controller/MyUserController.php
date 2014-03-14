@@ -101,25 +101,8 @@ class MyUserController extends AbstractActionController
     
     public function activationPendingAction()
     {
-    	$lang = $this->params()->fromRoute('lang', 'mg');     	
-//    	$server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
-
-//    	$email = 'test@mail.com';
-//    	$token = md5($email.time());
-//    	$activation_link = $server_url . $this->url()->fromRoute(static::ROUTE_ACTIVATION_DONE, array('lang' => $lang));
-//    	$activation_link .= '?token='.$token.'&email='.$email;
-//        
-//        $viewTemplate = 'mail/activation';
-//        $values = array(
-//			'link' => $activation_link
-//		);
-//		
-//		$mailService = $this->getServiceLocator()->get('goaliomailservice_message');
-//		$from = 'rhfano@gmail.com';
-//		$to = 'tsmakalagy@yahoo.fr';		
-//		$subject = 'Godana activation link';
-//		$message = $mailService->createHtmlMessage($from, $to, $subject, $viewTemplate, $values);   
-//		$mailService->send($message);
+    	$lang = $this->params()->fromRoute('lang', 'mg'); 
+    	
     	return new ViewModel();
     }
     
@@ -156,6 +139,9 @@ class MyUserController extends AbstractActionController
     			if ($activation_valid) {
     				$user->setState(2);
     				$user->removeUserMeta($userTokenMeta);
+    				$this->getObjectManager()->remove($userTokenMeta);
+    				$this->getObjectManager()->persist($user);
+    				$this->getObjectManager()->flush();
     			}
     			
     		}

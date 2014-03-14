@@ -482,7 +482,7 @@ class Module
                     $options = $sm->get('zfcuser_module_options');
                     $form = new Form\Register(null, $options);
                     $inputFilter = new \Zend\InputFilter\InputFilter();
-                    $callbackValidator = new Validator\UsernameValidatorCallback($sm->get('zfcuser_user_mapper'));
+                    $callbackValidator = new \ZfcUser\Validator\UsernameValidatorCallback($sm->get('zfcuser_user_mapper'));
 
                     $usernameValidator = new \Zend\Validator\Callback(array(
                     	'callback' => array($callbackValidator, 'validate'),
@@ -523,16 +523,6 @@ class Module
                     $form->setInputFilter(new Form\ChangePasswordFilter($options));
                     return $form;
                 },
-//                'zfcuser_user_mapper' => function ($sm) {
-//                    $options = $sm->get('zfcuser_module_options');
-//                    $mapper = new Mapper\User();
-//                    $mapper->setDbAdapter($sm->get('zfcuser_zend_db_adapter'));
-//                    $entityClass = $options->getUserEntityClass();
-//                    $mapper->setEntityPrototype(new $entityClass);
-//                    $mapper->setHydrator(new Mapper\UserHydrator());
-//                    $mapper->setTableName($options->getTableName());
-//                    return $mapper;
-//                },
     		),
     	);
     }

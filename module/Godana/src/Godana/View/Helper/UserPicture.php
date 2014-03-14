@@ -4,6 +4,7 @@ namespace Godana\View\Helper;
 use Doctrine\Common\Persistence\ObjectManager;
 use ZfcUser\Entity\UserInterface as User;
 
+use Godana\Entity\File;
 use Zend\View\Helper\AbstractHelper;
 use Zend\Authentication\AuthenticationService;
 
@@ -39,13 +40,16 @@ class UserPicture extends AbstractHelper
         }
         
     	$file = $user->getFile();
-        if (isset($file)) {
+        if ($file instanceof File) {
         	return $file->getImageUrlByDimension($dimension);
         } else {
-        	$file = $this->getObjectManager()->getRepository('Godana\Entity\File')->getDefaultImageFile();
-        	if (isset($file)) {
-        		return $file->getImageUrlByDimension($dimension);
+        	$files = $this->getObjectManager()->getRepository('Godana\Entity\File')->getDefaultImageFile();
+        	foreach ($files as $file) {
+	        	if ($file instanceof File) {
+	        		return $file->getImageUrlByDimension($dimension);
+	        	}	
         	}
+        	
         }
         return false;
     }
