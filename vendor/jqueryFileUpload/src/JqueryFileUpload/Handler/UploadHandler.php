@@ -300,6 +300,7 @@ class UploadHandler
                     }
                 }
             }
+            $file->path = $this->get_upload_path($file_name);
             $this->set_additional_file_properties($file);
             return $file;
         }
@@ -1024,6 +1025,7 @@ class UploadHandler
                     $append_file ? FILE_APPEND : 0
                 );
             }
+            $file->path = $file_path;
             $file_size = $this->get_file_size($file_path, $append_file);
             if ($file_size === $file->size) {
                 $file->url = $this->get_download_url($file->name);
