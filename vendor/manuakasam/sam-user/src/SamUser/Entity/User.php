@@ -132,8 +132,7 @@ class User implements UserInterface, ProviderInterface
      * @ORM\OneToMany(targetEntity="Godana\Entity\UserMeta", mappedBy="user")
      * 
      */
-    protected $userMetas;
-    
+    protected $userMetas;   
 
     /**
      * Initialies the roles variable.
