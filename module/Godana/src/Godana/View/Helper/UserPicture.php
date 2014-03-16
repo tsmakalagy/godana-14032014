@@ -41,12 +41,12 @@ class UserPicture extends AbstractHelper
         
     	$file = $user->getFile();
         if ($file instanceof File) {
-        	return $file->getImageUrlByDimension($dimension);
+        	return $file->getImageRelativePathByDimension($dimension);
         } else {
         	$files = $this->getObjectManager()->getRepository('Godana\Entity\File')->getDefaultImageFile();
         	foreach ($files as $file) {
 	        	if ($file instanceof File) {
-	        		return $file->getImageUrlByDimension($dimension);
+	        		return $file->getImageRelativePathByDimension($dimension);
 	        	}	
         	}
         	

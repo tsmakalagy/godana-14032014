@@ -22,7 +22,7 @@ class User extends ZfcUserService
     {
         $currentUser = parent::getAuthService()->getIdentity();
         $om = parent::getServiceManager()->get('Doctrine\ORM\EntityManager');
-    	$form  = parent::getProfileForm();
+    	$form  = $this->getProfileForm();
         $form->setData($data);
         if (!$form->isValid()) {
             return false;

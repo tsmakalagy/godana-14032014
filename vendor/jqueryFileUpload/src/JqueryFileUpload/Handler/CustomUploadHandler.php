@@ -27,16 +27,16 @@ class CustomUploadHandler extends UploadHandler
         
         $om = $this->getObjectManager();
         if (empty($file->error)) {
-//        	$myfile = new File();
-//	        $myfile->setName($file->name);
-//	        $myfile->setSize($file->size);
-//	        $myfile->setType($file->type);
-//	        $myfile->setTitle($file->title);
-//	        $myfile->setUrl($file->url);
-//	        $myfile->setDescription($file->description);
-//	        
-//	        $om->persist($myfile);
-//	        $om->flush();
+        	$myfile = new File();
+	        $myfile->setName($file->name);
+	        $myfile->setSize($file->size);
+	        $myfile->setType($file->type);
+	        $myfile->setTitle($file->title);
+	        $myfile->setRelativePath($file->relativePath);
+	        $myfile->setDescription($file->description);
+	        
+	        $om->persist($myfile);
+	        $om->flush();
 	        $file->id = $myfile->getId();
         }
         return $file;
@@ -50,10 +50,11 @@ class CustomUploadHandler extends UploadHandler
         		$file->id = $myfile->getId();
         		$file->type = $myfile->getType();
         		$file->title = $myfile->getTitle();
-        		$file->url = $myfile->getUrl();
         		$file->description = $myfile->getDescription();
         	} 	
         }
+        $relativePath = urldecode(substr($file->url, strpos($file->url, '/files/')));
+        $file->relativePath = $relativePath;
         parent::set_additional_file_properties($file);
     }
 

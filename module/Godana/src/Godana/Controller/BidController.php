@@ -667,11 +667,11 @@ class BidController extends AbstractActionController
         
     	$file = $user->getFile();
         if (isset($file)) {
-        	return $file->getImageUrlByDimension($dimension);
+        	return $file->getImageRelativePathByDimension($dimension);
         } else {
         	$file = $this->getObjectManager()->getRepository('Godana\Entity\File')->getDefaultImageFile();
         	if (isset($file)) {
-        		return $file->getImageUrlByDimension($dimension);
+        		return $file->getImageRelativePathByDimension($dimension);
         	}
         }
         return false;

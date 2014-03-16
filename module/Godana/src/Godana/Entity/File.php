@@ -32,7 +32,7 @@ class File
      * @ORM\Column(type="text")
      * @var text
      */
-    protected $url;
+    protected $relativePath;
     
     /**
      * 
@@ -93,14 +93,14 @@ class File
     	$this->type = $type;
     }
     
-    public function getUrl()
+    public function getRelativePath()
     {
-    	return $this->url;
+    	return $this->relativePath;
     }
     
-    public function setUrl($url)
+    public function setRelativePath($relativePath)
     {
-    	$this->url = $url;
+    	$this->relativePath = $relativePath;
     }
     
     public function getName()
@@ -167,24 +167,24 @@ class File
         }
     }
     
-    public function getThumbnailUrl()
+    public function getThumbnailRelativePath()
     {
-    	$url = $this->url;
-    	$imgUrl = substr($url, 0, strrpos($url, '/'));
-    	return $imgUrl . '/thumbnail/' . $this->name;
+    	$relativePath = $this->relativePath;
+    	$imgRelativePath = substr($relativePath, 0, strrpos($relativePath, '/'));
+    	return $imgRelativePath . '/thumbnail/' . $this->name;
     } 
     
-    public function getMediumUrl()
+    public function getMediumRelativePath()
     {
-    	$url = $this->url;
-    	$imgUrl = substr($url, 0, strrpos($url, '/'));
-    	return $imgUrl . '/medium/' . $this->name;
+    	$relativePath = $this->relativePath;
+    	$imgRelativePath = substr($relativePath, 0, strrpos($relativePath, '/'));
+    	return $imgRelativePath . '/medium/' . $this->name;
     } 
 
-	public function getImageUrlByDimension($dimension)
+	public function getImageRelativePathByDimension($dimension)
     {    	
 		$images = $this->getImages();
-		$url = $this->getUrl();
+		$relativePath = $this->getRelativePath();
 		foreach ($images as $image) {
 			$dim = $image->getDimension();
 			if ($dim == $dimension) {
@@ -192,8 +192,8 @@ class File
 				break;
 			}
 		}		
-		$imgUrl = substr($url, 0, strrpos($url, '/'));
-    	return $imgUrl . '/cropped/' . $imageName;
+		$imgRelativePath = substr($relativePath, 0, strrpos($relativePath, '/'));
+    	return $imgRelativePath . '/cropped/' . $imageName;
     }
     
 }

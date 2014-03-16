@@ -5,7 +5,7 @@ use Doctrine\ORM\EntityRepository;
 
 class FileRepository extends EntityRepository
 {
-	public function getImageUrlByDimension($fileId, $dimension)
+	public function getImageRelativePathByDimension($fileId, $dimension)
     {
     	$sql = 'SELECT f, i FROM Godana\Entity\File f JOIN f.images i 
     		WHERE f.id = ?1 AND i.dimension = ?2';
@@ -14,16 +14,16 @@ class FileRepository extends EntityRepository
 		$query->setParameter(2, $dimension);
 		$file = $query->getSingleResult();
 		$images = $file->getImages();
-		$url = $file->getUrl();
+		$relativePath = $file->getRelativePath();
 		$image = $images[0];
 		$imageName = $image->getName();
-		$imgUrl = substr($url, 0, strrpos($url, '/'));
-    	return $imgUrl . '/cropped/' . $imageName;
+		$imgRelativePath = substr($relativePath, 0, strrpos($relativePath, '/'));
+    	return $imgRelativePath . '/cropped/' . $imageName;
     }
     
 	public function getDefaultImageFile()
 	{
-		$sql = 'SELECT f FROM Godana\Entity\File f WHERE f.url LIKE \'%/users/default/%\'';
+		$sql = 'SELECT f FROM Godana\Entity\File f WHERE f.relativePath LIKE \'%/users/default/%\'';
 		$query = $this->_em->createQuery($sql);
 		$query->setMaxResults(1);
 		return $query->getResult();

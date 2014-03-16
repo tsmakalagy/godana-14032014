@@ -31,3 +31,21 @@ INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES
 (5, 2, 'shop-owner'),
 (6, 2, 'cooperative-admin'),
 (7, 2, 'cooperative-teller');
+
+INSERT INTO `gdn_contact_type` (`id_contact_type`, `name`) VALUES
+(1, 'mobile'),
+(2, 'email'),
+(3, 'address');
+
+INSERT INTO `gdn_category` (`id_category`, `id_parent_category`, `category_name`, `category_ident`, `category_type`) VALUES
+(1, NULL, 'appliance', 'appliance', 0),
+(2, NULL, 'agriculture', 'agriculture', 0),
+(3, NULL, 'housing', 'housing', 0),
+(4, NULL, 'technology', 'technology', 0),
+(5, NULL, 'transportation', 'transportation', 1),
+(6, NULL, 'mining', 'mining', 0),
+(7, NULL, 'quincaillerie', 'quincaillerie', 1),
+(8, NULL, 'immobilier', 'immobilier', 1),
+(9, NULL, 'habillement', 'habillement', 1),
+(10, NULL, 'charcuterie', 'charcuterie', 1),
+(12, NULL, 'boucherie', 'boucherie', 1);

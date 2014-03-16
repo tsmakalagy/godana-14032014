@@ -29,7 +29,7 @@ class SearchController extends AbstractActionController
 	
 	public function initAction()
 	{
-		$this->layout('layout/admin-layout');
+		$this->layout('layout/sb-admin-layout');
 		// SEARCH LUCENE
 		$lang = $this->params()->fromRoute('lang', 'mg');
 		$om = $this->getObjectManager();

@@ -9,7 +9,7 @@
 	$coverExist = false;
 	if (isset($cover) && $cover instanceof \Godana\Entity\File) {
 		$coverExist = true;
-		$coverUrl = $shop->getCover()->getImageUrlByDimension('md');
+		$coverUrl = $shop->getCover()->getImageRelativePathByDimension('md');
 	}
 	$categories = $shop->getCategories();
 	$categoryToDisplay = '';

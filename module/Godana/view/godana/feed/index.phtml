@@ -192,16 +192,16 @@
 				<div class="row" id="<?=$post->getId(); ?>">
 					<? $file = $files[0];?>
 					<div class="col-xs-12 col-sm-12 col-md-12" >					  
-					    <a href="<?=$file->getUrl(); ?>" download="<?=$file->getName(); ?>" data-gallery="#blueimp-gallery-<?=$postId; ?>">
-					      <img src="<?=$file->getMediumUrl(); ?>" class="img-responsive">
+					    <a href="<?=$file->getRelativePath(); ?>" download="<?=$file->getName(); ?>" data-gallery="#blueimp-gallery-<?=$postId; ?>">
+					      <img src="<?=$file->getMediumRelativePath(); ?>" class="img-responsive">
 					    </a>
 					  </div>
 				<? for ($i = 1; $i < count($files); $i++):
 					$file = $files[$i];
 				?>					
 					<div class="col-xs-6 col-sm-12 col-md-12 hide" >					  
-					    <a href="<?=$file->getUrl(); ?>" download="<?=$file->getName(); ?>" data-gallery="#blueimp-gallery-<?=$postId; ?>">
-					      <img src="<?=$file->getMediumUrl(); ?>" class="img-responsive">
+					    <a href="<?=$file->getRelativePath(); ?>" download="<?=$file->getName(); ?>" data-gallery="#blueimp-gallery-<?=$postId; ?>">
+					      <img src="<?=$file->getMediumRelativePath(); ?>" class="img-responsive">
 					    </a>
 					  </div>  	
 					  								
