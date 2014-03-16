@@ -52,6 +52,8 @@ class CropController extends AbstractActionController
 			
 			if (!is_file($thePicture)) exit('ERROR: Source image file not found');
 			
+			
+			
 			$size = getimagesize($thePicture);
 			$type = image_type_to_mime_type($size[2]);
 			$ft = '';
@@ -107,6 +109,19 @@ class CropController extends AbstractActionController
 			return new \Zend\View\Model\JsonModel(array('success' => $success));
 		}
 		
+	}
+
+	private function removeCroppedImage($cropped, $cacheFolder, $full)
+	{
+		$croppedFullPath = 
+		if ()
+	}
+	
+	private function getUploadPath($filename = null)
+	{
+		$filename = $filename ? $filename : '';
+		return $this->options['upload_dir'].$this->get_user_path()
+            .$version_path.$file_name;
 	}
 	
 	private function createThumbImageName($filename, $x, $y, $w, $h)

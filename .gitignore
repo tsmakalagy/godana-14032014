@@ -1,8 +1,6 @@
 .codio
 .project
 .settings
-.htaccess
-.htpasswd
 .buildpath
 composer.phar
 composer.lock
