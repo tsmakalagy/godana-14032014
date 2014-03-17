@@ -48,7 +48,7 @@ class Comment
     protected $deleted;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="post")
+     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id_post")
      * @var Post
      */

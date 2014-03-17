@@ -18,8 +18,7 @@ return array(
         'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
         'params' => array(
           'host'     => 'localhost',
-          'port'     => '3306',
-          'dbname'   => 'godana',
+          'port'     => '3306',          
 		  'charset'  => 'utf8'
         )
       )

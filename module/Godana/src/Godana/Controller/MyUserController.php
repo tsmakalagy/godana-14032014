@@ -329,7 +329,12 @@ class MyUserController extends AbstractActionController
         		$token = $userMeta->getMeta();
         	}
         }
-        $server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
+        $uri = $this->getRequest()->getUri();
+        $server_url = $uri->getScheme() . '://' . $uri->getHost();
+        $port = $uri->getPort();
+        if (!empty($port)) {
+        	$server_url .= ':' . $port;
+        }
     	$email = $user->getEmail();
     	$activation_link = $server_url . $this->url()->fromRoute(static::ROUTE_ACTIVATION_DONE, array('lang' => $lang));
     	$activation_link .= '?token='.$token.'&email='.$email;
