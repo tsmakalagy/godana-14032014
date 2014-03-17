@@ -216,6 +216,8 @@ $form->setAttribute('method', 'post');
 ?>
 <script type="text/javascript">
 var language = "<?=$this->lang?>";
+var ajaxUrl = "<?=$this->url('upload', array(), array(), true); ?>";
+var cropUrl = "<?=$this->url('crop', array(), array(), true); ?>";
 $(function() {
 	$(".datepicker").datepicker({language: language});
 	window.setTimeout(function() {
@@ -226,7 +228,8 @@ $(function() {
 		minimumResultsForSearch: 10
 	});
 	$('.show-modal').godana({
-		ajaxUrl: '/upload?type=user'
+		ajaxUrl: ajaxUrl+'?type=user',
+        cropUrl: cropUrl
 	});
 	$('#save-images').click(function(e) {
 		$('.fileId').each(function() {
