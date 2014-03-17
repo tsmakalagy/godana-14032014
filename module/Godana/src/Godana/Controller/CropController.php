@@ -111,7 +111,7 @@ class CropController extends AbstractActionController
 		
 	}
 
-	private function removeCroppedImage($cropped, $cacheFolder, $full)
+	/*private function removeCroppedImage($cropped, $cacheFolder, $full)
 	{
 		$croppedFullPath = 
 		if ()
@@ -122,7 +122,7 @@ class CropController extends AbstractActionController
 		$filename = $filename ? $filename : '';
 		return $this->options['upload_dir'].$this->get_user_path()
             .$version_path.$file_name;
-	}
+	}*/
 	
 	private function createThumbImageName($filename, $x, $y, $w, $h)
 	{
