@@ -39,14 +39,24 @@ class UserPicture extends AbstractHelper
             }
         }
         
+        $serverUrl = $this->view->plugin('serverurl');
+        $scheme = $serverUrl->getScheme();
+        $host = $serverUrl->getHost();
+        $port = $serverUrl->getPort();
+        
+    	$server_url = $scheme . '://' . $host;
+        if (!empty($port)) {
+        	$server_url .= ':' . $port;
+        }
+        
     	$file = $user->getFile();
         if ($file instanceof File) {
-        	return $file->getImageRelativePathByDimension($dimension);
+        	return $server_url. $file->getImageRelativePathByDimension($dimension);
         } else {
         	$files = $this->getObjectManager()->getRepository('Godana\Entity\File')->getDefaultImageFile();
         	foreach ($files as $file) {
 	        	if ($file instanceof File) {
-	        		return $file->getImageRelativePathByDimension($dimension);
+	        		return $server_url . $file->getImageRelativePathByDimension($dimension);
 	        	}	
         	}
         	
