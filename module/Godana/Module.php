@@ -578,7 +578,7 @@ class Module
             	->setDateofbirth(new \DateTime($form->get('dateofbirth')->getValue()) )
             	->setSex( $form->get('sex')->getValue() )
             	->setRegisterTime(new \DateTime('now'))
-            	->setRegisterIp($_SERVER['REMOTE_ADDR']);
+            	->setRegisterIp(ip2long($_SERVER['REMOTE_ADDR']));
         });   
 
         $zfcServiceEvents->attach('register.post', function($e) use($mvcEvent) {
