@@ -43,12 +43,13 @@ class UserPicture extends AbstractHelper
         $scheme = $serverUrl->getScheme();
         $host = $serverUrl->getHost();
         $port = $serverUrl->getPort();
+        $basePath = $this->view->plugin('basepath');
         
     	$server_url = $scheme . '://' . $host;
-        if (!empty($port)) {
+        if (!empty($port) && $port != 80) {
         	$server_url .= ':' . $port;
         }
-        
+        $server_url .= $basePath();
     	$file = $user->getFile();
         if ($file instanceof File) {
         	return $server_url. $file->getImageRelativePathByDimension($dimension);
