@@ -102,7 +102,17 @@ class MyUserController extends AbstractActionController
     public function activationPendingAction()
     {
     	$lang = $this->params()->fromRoute('lang', 'mg'); 
-    	
+    	$user = $this->getObjectManager()->getRepository('SamUser\Entity\User')->find(12);
+    	$userMetas = $user->getUserMetas();
+    	\Doctrine\Common\Util\Debug::dump($userMetas);
+        
+        $token = "";
+        foreach ($userMetas as $userMeta) {
+        	if ($userMeta->getMetaKey() == 'token') {
+        		$token = $userMeta->getMeta();
+        		var_dump($token);
+        	}
+        }
     	return new ViewModel();
     }
     
@@ -323,8 +333,10 @@ class MyUserController extends AbstractActionController
 //        return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN) . ($redirect ? '?redirect='.$redirect : ''));
 		
         $userMetas = $user->getUserMetas();
-        $token = "";
-        foreach ($userMetas as $userMeta) {
+        //\Doctrine\Common\Util\Debug::dump($userMetas);
+        //var_dump($userMetas);
+        $token = "";        
+    	foreach ($userMetas as $userMeta) {
         	if ($userMeta->getMetaKey() == 'token') {
         		$token = $userMeta->getMeta();
         	}
@@ -335,9 +347,11 @@ class MyUserController extends AbstractActionController
         if (!empty($port)) {
         	$server_url .= ':' . $port;
         }
+        
     	$email = $user->getEmail();
+    	var_dump($token);
     	$activation_link = $server_url . $this->url()->fromRoute(static::ROUTE_ACTIVATION_DONE, array('lang' => $lang));
-    	$activation_link .= '?token='.$token.'&email='.$email;
+    	$activation_link .= '?token=' . $token . '&email='.$email;
         
         $viewTemplate = 'mail/activation';
         $values = array(

@@ -123,10 +123,7 @@ $settings = array(
         'options' => array(
             'wordLen'    => 5,
             'expiration' => 300,
-            'timeout'    => 300,
-//			'font'	=> realpath(dirname(__FILE__)) . '/../../public/fonts/Average-Regular.ttf'
-			'privkey' => '6LekAvASAAAAAO5Z4KqXZFJTkctQ7nrTqcNNhaTj',
-			'pubkey' => '6LekAvASAAAAANAvoGG1I85mlppg8ap6TfIr695l'
+            'timeout'    => 300
         ),
     ),
 
