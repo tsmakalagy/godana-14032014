@@ -9,6 +9,7 @@ data/data
 data/DoctrineORMModule
 data/search
 public/files
+public/images
 module/Godana/test/data/
 data/mail/
 ZendSkeletonApplication/
