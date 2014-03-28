@@ -25,10 +25,7 @@ $form->setAttribute('method', 'post');
             <?php echo $this->formLabel($element); ?>
         <?php endif; ?>
         <?php if ($element instanceof Zend\Form\Element\Button): ?>
-        	<div class="row">
-            <div class="col-sm-4 col-sm-offset-4">            
-            <?php echo $this->formButton($element) ?></div>
-            </div>
+            <?php echo $this->formButton($element) ?>
         <?php elseif ($element instanceof Zend\Form\Element\Captcha): ?>
             <div class="gdn_input_margin"><?php echo $this->formCaptcha($element) . $this->formElementErrors($element) ?></div>
         <?php elseif ($element instanceof Zend\Form\Element\Select): ?>

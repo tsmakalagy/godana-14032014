@@ -40,18 +40,19 @@ $form->setAttribute('role', 'form');
         <?php endif ?>
 
         <div class="form-group">
-        <div class="col-sm-4 col-sm-offset-2 col-xs-6 col-xs-offset-1"><?php echo $this->formButton($form->get('submit')) ?></div>
-        <?php     echo $this->mySocialSignInButton('facebook') ?>
+        <?php echo $this->formButton($form->get('submit')) ?>        
+        
         </div>
-    
+        <div class="form-group">
+        <?php     echo $this->mySocialSignInButton('facebook') ?>
+    	</div>
 
 <?php echo $this->form()->closeTag() ?>
 
 <?php if ($this->enableRegistration) : ?>
-<div class="row">
-<div class="col-sm-12">
-<?php echo $this->translate('Not registered?'); ?> <a href="<?php echo $this->url('zfcuser/register', array(), array(), true) . ($this->redirect ? '?redirect='.$this->redirect : '') ?>"><?php echo $this->translate('Sign up!'); ?></a>
-</div>
+<div class="form-group">
+<a href="<?php echo $this->url('zfcuser/register', array(), array(), true) . 
+($this->redirect ? '?redirect='.$this->redirect : '') ?>" class="btn btn-danger btn-lg col-sm-12 col-xs-12 col-md-12 "><?php echo $this->translate('Sign up'); ?></a>
 </div>
 <?php endif; ?>
 </div><!-- end .gdn_form_area -->

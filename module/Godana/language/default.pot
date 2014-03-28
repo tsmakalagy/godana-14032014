@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Godana 0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 21:10+0300\n"
+"POT-Creation-Date: 2014-03-26 18:34+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Fano <rhfano@gmail.com>\n"
 "Language-Team: Translator <translator@godana.com>\n"
@@ -14,10 +14,15 @@ msgstr ""
 "X-Poedit-Country: Madagascar\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: translate;_;setLabel;setValue;setLegend;_refresh;formLabel;formElement;formSelect\n"
-"X-Poedit-Basepath: /media/DATA/PROJECT/FFK/godana\n"
+"X-Poedit-Basepath: /media/DATA/PROJECT/FFK/godana.new\n"
 "X-Poedit-SearchPath-0: module\n"
 "X-Poedit-SearchPath-1: vendor/zf-commons/zfc-user\n"
 "X-Poedit-SearchPath-2: module/Godana/view\n"
+"X-Poedit-SearchPath-3: module/Godana/src/Godana/View/Helper\n"
+
+#: module/Godana/Module.php:516
+msgid "Save"
+msgstr ""
 
 #: module/Godana/src/Godana/Controller/BidController.php:505
 msgid "Price"
@@ -104,15 +109,12 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: module/Godana/src/Godana/Form/Base.php:107
+#: module/Godana/src/Godana/Form/Base.php:173
 msgid "Submit"
 msgstr ""
 
-#: module/Godana/src/Godana/Form/BidForm.php:45
-#: module/Godana/src/Godana/Form/CarDriverForm.php:36
-#: module/Godana/src/Godana/Form/CarForm.php:36
-#: module/Godana/src/Godana/Form/CarMakeForm.php:36
-msgid "Save"
+#: module/Godana/src/Godana/Form/Login.php:72
+msgid "Sign In"
 msgstr ""
 
 #: module/Godana/src/Godana/Form/PostFeedFieldset.php:43
@@ -123,18 +125,16 @@ msgstr ""
 msgid "Tell us..."
 msgstr ""
 
+#: module/Godana/src/Godana/Form/Profile.php:36
+msgid "Register"
+msgstr ""
+
+#: module/Godana/src/Godana/View/Helper/MySocialSignInButton.php:15
+msgid "Sign up with"
+msgstr ""
+
 #: module/Godana/test/GodanaTest/DataFixture/BidFixture.php:52
 msgid "0356498756"
-msgstr ""
-
-#: vendor/zf-commons/zfc-user/src/ZfcUser/Form/Login.php:72
-msgid "Sign In"
-msgstr ""
-
-#: vendor/zf-commons/zfc-user/src/ZfcUser/Form/Profile.php:36
-#: vendor/zf-commons/zfc-user/src/ZfcUser/Form/Register.php:36
-#: vendor/zf-commons/zfc-user/src/ZfcUser/language/msgIds.php:19
-msgid "Register"
 msgstr ""
 
 #: vendor/zf-commons/zfc-user/src/ZfcUser/language/msgIds.php:6
@@ -375,26 +375,18 @@ msgstr ""
 #: module/Application/view/layout/gdn-layout.phtml:96
 #: module/Application/view/layout/layout.phtml:77
 #: module/Application/view/layout/my-layout.phtml:46
-#: module/Godana/view/godana/bid/index.phtml:16
 msgid "Home"
 msgstr ""
 
 #: module/Application/view/layout/gdn-layout.phtml:99
 #: module/Application/view/layout/layout.phtml:80
 #: module/Application/view/layout/my-layout.phtml:49
-#: module/Godana/view/godana/bid/add.phtml:9
-#: module/Godana/view/godana/bid/add.phtml:14
-#: module/Godana/view/godana/bid/detail.phtml:3
-#: module/Godana/view/godana/bid/edit.phtml:31
-#: module/Godana/view/godana/bid/index.phtml:9
-#: module/Godana/view/godana/bid/index.phtml:19
 msgid "Bid"
 msgstr ""
 
 #: module/Application/view/layout/gdn-layout.phtml:102
 #: module/Application/view/layout/layout.phtml:83
 #: module/Application/view/layout/my-layout.phtml:52
-#: module/Godana/view/godana/bid/index.phtml:22
 msgid "Shops"
 msgstr ""
 
@@ -407,7 +399,6 @@ msgstr ""
 #: module/Application/view/layout/gdn-layout.phtml:108
 #: module/Application/view/layout/layout.phtml:89
 #: module/Application/view/layout/my-layout.phtml:58
-#: module/Godana/view/godana/bid/index.phtml:25
 msgid "Tools"
 msgstr ""
 
@@ -446,6 +437,12 @@ msgstr ""
 #: module/Godana/view/godana/bid/index.phtml:164
 #: module/Godana/view/godana/bid/index.phtml:187
 #: module/Godana/view/godana/bid/translate.phtml:29
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:72
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:95
+#: module/Godana/view/godana/cooperative/add-line.phtml:82
+#: module/Godana/view/godana/cooperative/add-line.phtml:105
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:100
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:123
 msgid "Mobile"
 msgstr ""
 
@@ -502,6 +499,15 @@ msgstr ""
 #: module/Godana/view/godana/bid/index.phtml:168
 #: module/Godana/view/godana/bid/index.phtml:193
 #: module/Godana/view/godana/bid/index.phtml:195
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:76
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:101
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:103
+#: module/Godana/view/godana/cooperative/add-line.phtml:86
+#: module/Godana/view/godana/cooperative/add-line.phtml:111
+#: module/Godana/view/godana/cooperative/add-line.phtml:113
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:104
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:129
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:131
 msgid "Contact"
 msgstr ""
 
@@ -511,6 +517,12 @@ msgstr ""
 
 #: module/Godana/view/godana/bid/index.phtml:166
 #: module/Godana/view/godana/bid/index.phtml:191
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:74
+#: module/Godana/view/godana/cooperative/add-car-driver.phtml:99
+#: module/Godana/view/godana/cooperative/add-line.phtml:84
+#: module/Godana/view/godana/cooperative/add-line.phtml:109
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:102
+#: module/Godana/view/godana/cooperative/create-cooperative.phtml:127
 msgid "Adress"
 msgstr ""
 
@@ -628,12 +640,6 @@ msgstr ""
 #: module/Godana/view/godana/cooperative/create-cooperative.phtml:4
 #: module/Godana/view/godana/cooperative/create-line.phtml:4
 #: module/Godana/view/godana/cooperative/create-reservation-board.phtml:5
-#: module/Godana/view/godana/cooperative/create-reservation.phtml:4
-#: module/Godana/view/godana/cooperative/create-zone.phtml:1
-#: module/Godana/view/godana/cooperative/detail-reservation-board.phtml:4
-#: module/Godana/view/godana/cooperative/edit-cooperative.phtml:4
-#: module/Godana/view/godana/cooperative/index.phtml:3
-#: module/Godana/view/godana/cooperative/list-reservation-board.phtml:3
 msgid "Admin Cooperative"
 msgstr ""
 
@@ -650,9 +656,6 @@ msgstr ""
 #: module/Godana/view/godana/cooperative/create-cooperative.phtml:15
 #: module/Godana/view/godana/cooperative/create-line.phtml:15
 #: module/Godana/view/godana/cooperative/create-reservation-board.phtml:16
-#: module/Godana/view/godana/cooperative/create-reservation.phtml:15
-#: module/Godana/view/godana/cooperative/create-zone.phtml:12
-#: module/Godana/view/godana/cooperative/edit-cooperative.phtml:15
 msgid "Success!"
 msgstr ""
 
@@ -710,12 +713,10 @@ msgid "Cooperative created successfully."
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/create-cooperative.phtml:150
-#: module/Godana/view/godana/cooperative/edit-cooperative.phtml:150
 msgid "Admins"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/create-cooperative.phtml:151
-#: module/Godana/view/godana/cooperative/edit-cooperative.phtml:151
 msgid "Tellers"
 msgstr ""
 
@@ -782,6 +783,7 @@ msgid "List cooperative"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/index.phtml:14
+#: module/Godana/view/godana/cooperative/view-reservation.phtml:48
 msgid "Name"
 msgstr ""
 
@@ -791,30 +793,37 @@ msgstr ""
 
 #: module/Godana/view/godana/cooperative/index.phtml:15
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:22
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:49
 msgid "Action"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:8
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:35
 msgid "Reservation board"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:21
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:18
 msgid "Line"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:21
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:48
 msgid "Car"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:22
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:49
 msgid "Departure time"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:22
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:49
 msgid "Seat available"
 msgstr ""
 
 #: module/Godana/view/godana/cooperative/list-reservation-board.phtml:39
+#: module/Godana/view/godana/cooperative/user-reservation.phtml:66
 msgid "Detail"
 msgstr ""
 
@@ -872,6 +881,18 @@ msgstr ""
 msgid "Welcome to %sgodana%s"
 msgstr ""
 
+#: module/Godana/view/godana/my-user/activation-done.phtml:3
+msgid "Congratulations! Your account has been activated. You will be redirected to login page in a moment. If not please click this"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/activation-done.phtml:3
+msgid "link"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/activation-pending.phtml:3
+msgid "Thank you for joining Godana! An email has been sent to your mailbox. Please click the link to activate your account."
+msgstr ""
+
 #: module/Godana/view/godana/my-user/add-user.phtml:9
 msgid "Add user"
 msgstr ""
@@ -893,6 +914,19 @@ msgstr ""
 msgid "Role"
 msgstr ""
 
+#: module/Godana/view/godana/my-user/changepassword.phtml:1
+#: module/Godana/view/godana/my-user/profile.phtml:51
+msgid "Change password"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/changepassword.phtml:9
+msgid "Password changed successfully."
+msgstr ""
+
+#: module/Godana/view/godana/my-user/changepassword.phtml:14
+msgid "Unable to update your password. Please try again."
+msgstr ""
+
 #: module/Godana/view/godana/my-user/edit-user.phtml:9
 #: module/Godana/view/godana/my-user/list.phtml:26
 msgid "Edit user"
@@ -900,6 +934,10 @@ msgstr ""
 
 #: module/Godana/view/godana/my-user/edit-user.phtml:15
 msgid "User changed successfully."
+msgstr ""
+
+#: module/Godana/view/godana/my-user/index.phtml:2
+msgid "Hello"
 msgstr ""
 
 #: module/Godana/view/godana/my-user/list.phtml:3
@@ -913,6 +951,27 @@ msgstr ""
 
 #: module/Godana/view/godana/my-user/list.phtml:14
 msgid "Last name"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/login.phtml:55
+msgid "Sign up"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/profile.phtml:16
+msgid "Your profile is updated."
+msgstr ""
+
+#: module/Godana/view/godana/my-user/profile.phtml:33
+msgid "Profile picture"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/profile.phtml:38
+msgid "Change image"
+msgstr ""
+
+#: module/Godana/view/godana/my-user/profile.phtml:227
+#: module/Godana/view/godana/my-user/register.phtml:76
+msgid "Sex"
 msgstr ""
 
 #: module/Godana/view/godana/product/add.phtml:8
@@ -973,7 +1032,6 @@ msgid "Published on "
 msgstr ""
 
 #: module/Godana/view/godana/shop/add.phtml:8
-#: module/Godana/view/godana/shop/edit.phtml:9
 msgid "Admin Shop"
 msgstr ""
 
@@ -982,13 +1040,10 @@ msgid "Create shop"
 msgstr ""
 
 #: module/Godana/view/godana/shop/add.phtml:67
-#: module/Godana/view/godana/shop/edit.phtml:75
 msgid "Category name"
 msgstr ""
 
 #: module/Godana/view/godana/shop/add.phtml:203
-#: module/Godana/view/godana/shop/edit.phtml:342
-#: module/Godana/view/godana/shop/index.phtml:14
 msgid "Owner"
 msgstr ""
 
@@ -1135,6 +1190,14 @@ msgstr ""
 msgid "Transportation"
 msgstr ""
 
+#: module/Godana/view/mail/activation.phtml:1
+msgid "Click this link to activate your account on Godana"
+msgstr ""
+
+#: module/Godana/view/mail/activation.phtml:2
+msgid "We thank you for taking your time."
+msgstr ""
+
 #: module/Godana/view/mail/register.phtml:1
 msgid "Your login is"
 msgstr ""
@@ -1153,21 +1216,6 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: module/Godana/view/zfc-user/user/changepassword.phtml:1
-#: module/Godana/view/zfc-user/user/profile.phtml:51
-msgid "Change password"
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/changepassword.phtml:9
-#: vendor/zf-commons/zfc-user/view/zfc-user/user/changepassword.phtml:3
-msgid "Password changed successfully."
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/changepassword.phtml:14
-#: vendor/zf-commons/zfc-user/view/zfc-user/user/changepassword.phtml:5
-msgid "Unable to update your password. Please try again."
-msgstr ""
-
 #: module/Godana/view/zfc-user/user/login.phtml:53
 #: vendor/zf-commons/zfc-user/view/zfc-user/user/login.phtml:31
 msgid "Not registered?"
@@ -1176,23 +1224,6 @@ msgstr ""
 #: module/Godana/view/zfc-user/user/login.phtml:53
 #: vendor/zf-commons/zfc-user/view/zfc-user/user/login.phtml:31
 msgid "Sign up!"
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/profile.phtml:16
-msgid "Your profile is updated."
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/profile.phtml:33
-msgid "Profile picture"
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/profile.phtml:38
-msgid "Change image"
-msgstr ""
-
-#: module/Godana/view/zfc-user/user/profile.phtml:225
-#: module/Godana/view/zfc-user/user/register.phtml:76
-msgid "Sex"
 msgstr ""
 
 #: vendor/zf-commons/zfc-user/view/zfc-user/user/changeemail.phtml:1
@@ -1211,9 +1242,5 @@ msgstr ""
 #: vendor/zf-commons/zfc-user/view/zfc-user/user/changepassword.phtml:1
 #, php-format
 msgid "Change Password for %s"
-msgstr ""
-
-#: vendor/zf-commons/zfc-user/view/zfc-user/user/index.phtml:2
-msgid "Hello"
 msgstr ""
 

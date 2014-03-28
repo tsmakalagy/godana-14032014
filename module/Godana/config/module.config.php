@@ -146,13 +146,16 @@ return array(
                         ),
                     ),
                     'activation_pending' => array(
-                        'type' => 'Literal',
+                        'type' => 'Segment',
                         'options' => array(
-                            'route' => '/activation/pending',
+                            'route' => '/activation/pending/:userId',
                             'defaults' => array(
                                 'controller' => 'zfcuser',
                                 'action'     => 'activationPending',
                             ),
+                            'constraints' => array(
+		            			'userId' => '[0-9]*',
+		            		),
                         ),
                     ),
                     'activation_done' => array(
