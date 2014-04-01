@@ -524,7 +524,7 @@ htmlspecialchars('" class="gdn_text" name="bid-form[post][contacts][__placeholde
 var category_placeholder = "<?=$this->translate('Categories'); ?>";
 var urlForm = "<?=$this->url('add-ajax-bid', array(), array(), true); ?>",
 	city_url = "<?=$this->url('admin/shop_admin/city', array(), array(), true); ?>",
-	ajax_url = "<?=$this->url('upload-bid', array(), array(), true); ?>";
+	ajaxUrl = "<?=$this->url('upload', array(), array(), true); ?>";
 $(function() {
 	var type_opts = {
 		minimumResultsForSearch: 10,
@@ -580,7 +580,7 @@ $(function() {
 
 	$('.show-modal').godana({
 		doCrop: false,
-		ajaxUrl: ajax_url+'?type=bid'
+		ajaxUrl: ajaxUrl+'?type=bid'
 	});
 
 	$(document).on("click", ".add_bid", function(e) {
