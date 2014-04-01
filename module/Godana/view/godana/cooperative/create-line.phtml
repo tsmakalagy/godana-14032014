@@ -79,7 +79,7 @@ echo "has-error" ?>">
 			->appendFile($this->basePath() . '/js/select2.min.js')?>
 
 <script type="text/javascript">
-    var city_url = "<?=$this->basePath();?>/admin/shop/city";
+var city_url = "<?=$this->url('admin/shop_admin/city', array(), array(), true); ?>";
 $(function() {
 	$("#select_departure").select2({
 		placeholder: "Search for a city",

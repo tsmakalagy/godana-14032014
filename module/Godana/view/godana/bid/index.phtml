@@ -521,8 +521,10 @@ htmlspecialchars('" class="gdn_text" name="bid-form[post][contacts][__placeholde
 
 <script type="text/javascript">
 <!--
-var urlForm = "<?=$this->url('add-ajax-bid', array(), array(), true); ?>";
 var category_placeholder = "<?=$this->translate('Categories'); ?>";
+var urlForm = "<?=$this->url('add-ajax-bid', array(), array(), true); ?>",
+	city_url = "<?=$this->url('admin/shop_admin/city', array(), array(), true); ?>",
+	ajax_url = "<?=$this->url('upload-bid', array(), array(), true); ?>";
 $(function() {
 	var type_opts = {
 		minimumResultsForSearch: 10,
@@ -538,7 +540,7 @@ $(function() {
 		placeholder: "Search for a city",
 		minimumInputLength: 3,
 		ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-			url: "/admin/shop/city",
+			url: city_url,
 		    dataType: 'json',
 		    quietMillis: 100,
 		    data: function (term, page) {
@@ -578,7 +580,7 @@ $(function() {
 
 	$('.show-modal').godana({
 		doCrop: false,
-		ajaxUrl: '/upload?type=bid'
+		ajaxUrl: ajax_url+'?type=bid'
 	});
 
 	$(document).on("click", ".add_bid", function(e) {
