@@ -141,7 +141,7 @@ class ShopController extends AbstractActionController
         		$ident .= '-' . $index;
         	}
         	$shop->setIdent($ident);
-        	
+        	$shop->setDeleted(0);
         	$om->persist($shop);
             $om->flush();
             return $this->redirect()->toRoute('admin/shop_admin');
