@@ -202,6 +202,7 @@ $reset = $form->get('reset'); ?>
 var category_placeholder = "<?=$this->translate('Categories'); ?>";
 var owner_placeholder = "<?=$this->translate('Owner'); ?>";
 var city_placeholder = "<?=$this->translate('City'); ?>";
+var city_url = "<?=$this->url('admin/shop_admin/city', array(), array(), true); ?>";
 $(function() {
 	$(".category-select").select2({
 		placeholder: category_placeholder,
@@ -216,7 +217,7 @@ $(function() {
 		placeholder: city_placeholder,
 	    minimumInputLength: 3,
 	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-	        url: "city",
+	        url: city_url,
 	        dataType: 'json',
 	        quietMillis: 100,
 	        data: function (term, page) {

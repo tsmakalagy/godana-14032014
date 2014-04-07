@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection as Collection;
 /**
  * 
  * @ORM\Entity(repositoryClass="Godana\Entity\ShopRepository")
- * @ORM\Table(name="gdn_shop")
+ * @ORM\Table(name="gdn_shop", uniqueConstraints={@ORM\UniqueConstraint(name="shop_idx", columns={"ident"})})
  * @author raiza
  *
  */

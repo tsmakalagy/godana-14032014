@@ -132,26 +132,15 @@ class ShopController extends AbstractActionController
         $form->setData($post);
         
  		if ($form->isValid()) {
-        	$shop->setIdent($this->slug()->seoUrl($shop->getName()));
+ 			$ident = $this->slug()->seoUrl($shop->getName());
+ 			$existIdent = $om->getRepository('Godana\Entity\Shop')->checkIfIdentExists($ident);        	
         	$shopForm = $this->request->getPost()->get('shop-form');
-        	if (array_key_exists('new-categories', $shopForm)) {
-	        	$newCategories = $shopForm['new-categories'];
-	        	if (isset($newCategories) && count($newCategories) > 0) {		        		
-		        	foreach ($newCategories as $category) {
-		        		$name = $category['name'];
-		        		$ident = $this->slug()->seoUrl($name);
-		        		$type = 1;
-		        		$newCategory = new Category();
-		        		$newCategory->setName($name);
-		        		$newCategory->setIdent($ident);
-		        		$newCategory->setType($type);
-		        		$om->persist($newCategory);
-	        			$om->flush();
-		        		$shop->addCategory($newCategory);
-		        	}	
-	        	}	
+        	if ($existIdent !== false) {
+        		$index = (int)$existIdent;
+        		$index++;
+        		$ident .= '-' . $index;
         	}
-        	
+        	$shop->setIdent($ident);
         	
         	$om->persist($shop);
             $om->flush();

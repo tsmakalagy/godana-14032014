@@ -13,13 +13,23 @@ class PostRepositoryTest extends PHPUnit_Framework_TestCase
 		$post->expects($this->once())
 			->method('getTitle')
 			->will($this->returnValue('test post'));
+			
+		$post->expects($this->once())
+			->method('getIdent')
+			->will($this->returnValue('test-post'));
 		
 		$postRepository = $this->getMockBuilder('\Godana\Entity\PostRepository')
 			->disableOriginalConstructor()
 			->getMock();
 		$postRepository->expects($this->once())
 			->method('getAllPosts')
+			->will($this->returnValue($post));	
+			
+		$postRepository->expects($this->once())
+			->method('checkIfIdentExists')
+			//->with($this->equalTo('test-post'))
 			->will($this->returnValue($post));
+		
 			
 		$entityManager = $this->getMockBuilder('\Doctrine\Common\Persistence\ObjectManager')
             ->disableOriginalConstructor()
@@ -35,9 +45,13 @@ class PostRepositoryTest extends PHPUnit_Framework_TestCase
 		$repository = $this->_em->getRepository('\Godana\Entity\Post');
 		$this->assertInstanceOf('\Godana\Entity\PostRepository', $repository);
 		$post = $repository->getAllPosts();
+		$postSD = $repository->checkIfIdentExists('test-post');
+		$postIdent = $post->getIdent();
 		$postTitle = $post->getTitle();
 		$this->assertEquals('test post', $postTitle);
 	}
+	
+	
 	
 	
 }
