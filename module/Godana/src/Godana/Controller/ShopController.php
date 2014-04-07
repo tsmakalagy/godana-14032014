@@ -208,7 +208,14 @@ class ShopController extends AbstractActionController
                 }
             }
  			
-        	$shop->setIdent($this->slug()->seoUrl($shop->getName()));	        	
+        	$ident = $this->slug()->seoUrl($shop->getName());
+ 			$existIdent = $om->getRepository('Godana\Entity\Shop')->checkIfIdentExists($ident);    
+        	if ($existIdent !== false) {
+        		$index = (int)$existIdent;
+        		$index++;
+        		$ident .= '-' . $index;
+        	}
+        	$shop->setIdent($ident);	
         	$om->persist($shop);
             $om->flush();
 //            return $this->redirect()->toRoute('admin/shop_admin');
