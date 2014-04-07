@@ -300,6 +300,8 @@ echo "has-error" ?>">
 <script type="text/javascript">
 var shop_placeholder = "<?=$this->translate('Select shop'); ?>";
 var type_placeholder = "<?=$this->translate('Select type'); ?>";
+var ajax_url = "<?=$this->url('admin/product/upload', array(), array(), true); ?>",
+	url_attribute = "<?=$this->url('admin/product/list_attribute', array(), array(), true); ?>";
 $(function() {
 	$(".shop-select").select2({ 
 		placeholder: shop_placeholder,
@@ -313,7 +315,7 @@ $(function() {
 				$('.show-modal').godana({
 					off: false,
 					doCrop: false,
-					ajaxUrl: 'ajax?shopId='+shopId
+					ajaxUrl:ajax_url+'?shopId='+shopId,
 				});
 			} else {
 				$('.show-modal').click(function(e) {			
@@ -328,7 +330,7 @@ $(function() {
 	if (shopId != "") {			
 		$('.show-modal').godana({
 			doCrop: false,
-			ajaxUrl: 'ajax?shopId='+shopId
+			ajaxUrl: ajax_url+'?shopId='+shopId,
 		});
 	} else {
 		$('.show-modal').click(function(e) {			
@@ -353,7 +355,7 @@ $(function() {
 		if(event.target == this){
 			var typeId = event.val;
 			$.ajax({
-				url: "list-attribute",
+				url: url_attribute,
 				data: "productType="+typeId,
 				dataType: "json",
 				success: function(data) {
@@ -379,7 +381,7 @@ $(function() {
 	var typeId = $(".product-type-select").select2("val");
 	if (typeId != "") {
 		$.ajax({
-			url: "list-attribute",
+			url: url_attribute,
 			data: "productType="+typeId,
 			dataType: "json",
 			success: function(data) {

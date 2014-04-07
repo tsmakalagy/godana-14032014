@@ -223,7 +223,7 @@ class ProductController extends AbstractActionController
 //		}		
  	}
  	
-	public function ajaxAction()
+	public function uploadAction()
  	{ 	
  		$om = $this->getObjectManager();	
         $shopId = $this->params()->fromQuery('shopId', 1);

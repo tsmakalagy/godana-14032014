@@ -547,13 +547,13 @@ return array(
 		                            ),
 		                        ),
 		                    ),
-		                    'ajax' => array(
+		                    'upload' => array(
 		                        'type' => 'literal',
 		                        'options' => array(
-		                            'route' => '/ajax',
+		                            'route' => '/upload',
 		                            'defaults' => array(
 		                                'controller' => 'product',
-		                                'action'     => 'ajax',
+		                                'action'     => 'upload',
 		                            ),
 		                        ),
 		                    ),

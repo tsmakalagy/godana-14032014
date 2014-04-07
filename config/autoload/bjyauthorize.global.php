@@ -152,7 +152,7 @@ return array(
                 array('route' => 'admin/product/type_add', 'roles' => array('admin', 'shop-owner')),
                 array('route' => 'admin/product/add', 'roles' => array('admin', 'shop-owner')),
                 array('route' => 'admin/product/list', 'roles' => array('admin', 'shop-owner')),
-                array('route' => 'admin/product/ajax', 'roles' => array('admin', 'shop-owner')),
+                array('route' => 'admin/product/upload', 'roles' => array('admin', 'shop-owner')),
                 array('route' => 'admin/product/list_attribute', 'roles' => array('admin', 'shop-owner')),
                 array('route' => 'admin/product/ajax_list_attribute', 'roles' => array('admin', 'shop-owner')),
                 array('route' => 'admin/product/type_list', 'roles' => array('admin', 'shop-owner')),
