@@ -26,7 +26,7 @@ $cover = $shop->getCover();
 $coverExist = false;
 if (isset($cover) && $cover instanceof \Godana\Entity\File) {
 	$coverExist = true;
-	$coverUrl = $shop->getCover()->getImageRelativePathByDimension('md');
+	$coverUrl = $this->serverUrl() . $shop->getCover()->getImageRelativePathByDimension('md');
 }
 $form->prepare();
 $form->setAttribute('action', $this->url('admin/shop_admin/shop_edit', array('lang' => $this->lang, 'id' => $shopId)));
