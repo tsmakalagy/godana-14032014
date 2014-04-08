@@ -23,7 +23,7 @@ class FileRepository extends EntityRepository
     
 	public function getDefaultImageFile()
 	{
-		$sql = 'SELECT f FROM Godana\Entity\File f WHERE f.relativePath LIKE \'%/users/default/%\'';
+		$sql = 'SELECT f FROM Godana\Entity\File f WHERE f.name = \'no-picture.png\'';
 		$query = $this->_em->createQuery($sql);
 		$query->setMaxResults(1);
 		return $query->getResult();
