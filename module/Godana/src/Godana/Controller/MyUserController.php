@@ -102,7 +102,7 @@ class MyUserController extends AbstractActionController
     public function activationPendingAction()
     {
     	$lang = $this->params()->fromRoute('lang', 'mg'); 
-    	/*$userId = $this->params()->fromRoute('userId', null);
+    	$userId = $this->params()->fromRoute('userId', null);
     	$user = $this->getObjectManager()->getRepository('SamUser\Entity\User')->find($userId);
     	$userMetas = $user->getUserMetas();
         //\Doctrine\Common\Util\Debug::dump($userMetas);
@@ -112,9 +112,10 @@ class MyUserController extends AbstractActionController
         		$token = $userMeta->getMeta();
         	}
         }
+        
         $serverUrl = $this->getServiceLocator()->get('ViewHelperManager')->get('serverUrl')->__invoke();
-        $basePath = $this->getServiceLocator()->get('ViewHelperManager')->get('basePath')->__invoke();
-        $server_url = $serverUrl . $basePath;
+        //$basePath = $this->getServiceLocator()->get('ViewHelperManager')->get('basePath')->__invoke();
+        $server_url = $serverUrl;
         
     	$email = $user->getEmail();
     	$activation_link = $server_url . $this->url()->fromRoute(static::ROUTE_ACTIVATION_DONE, array('lang' => $lang));
@@ -130,7 +131,7 @@ class MyUserController extends AbstractActionController
 		$to = $email;		
 		$subject = 'Godana activation link';
 		$message = $mailService->createHtmlMessage($from, $to, $subject, $viewTemplate, $values);   
-		$mailService->send($message);*/
+		$mailService->send($message);
     	
     	
     	
