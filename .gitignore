@@ -8,7 +8,8 @@ data/cache
 data/data
 data/DoctrineORMModule
 data/search
-public/files
+public/files/*
+!public/files/users
 public/files/users/*
 !public/files/users/default/*
 public/images
