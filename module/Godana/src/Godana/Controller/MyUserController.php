@@ -112,12 +112,9 @@ class MyUserController extends AbstractActionController
         		$token = $userMeta->getMeta();
         	}
         }
-        $uri = $this->getRequest()->getUri();
-        $server_url = $uri->getScheme() . '://' . $uri->getHost();
-        $port = $uri->getPort();
-        if (!empty($port)) {
-        	$server_url .= ':' . $port;
-        }
+        $serverUrl = $this->getServiceLocator()->get('ViewHelperManager')->get('serverUrl')->__invoke();
+        $basePath = $this->getServiceLocator()->get('ViewHelperManager')->get('basePath')->__invoke();
+        $server_url = $serverUrl . $basePath;
         
     	$email = $user->getEmail();
     	$activation_link = $server_url . $this->url()->fromRoute(static::ROUTE_ACTIVATION_DONE, array('lang' => $lang));
@@ -134,8 +131,7 @@ class MyUserController extends AbstractActionController
 		$subject = 'Godana activation link';
 		$message = $mailService->createHtmlMessage($from, $to, $subject, $viewTemplate, $values);   
 		$mailService->send($message);*/
-    	$uri = $this->getRequest()->getUri(true);
-    	var_dump($uri);
+    	
     	return new ViewModel();
     }
     
