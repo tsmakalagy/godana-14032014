@@ -9,6 +9,8 @@ data/data
 data/DoctrineORMModule
 data/search
 public/files
+public/files/users/*
+!public/files/users/default/*
 public/images
 module/Godana/test/data/
 data/mail/
