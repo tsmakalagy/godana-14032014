@@ -462,7 +462,7 @@ class BidController extends AbstractActionController
 		$user = $post->getUser();
 		$contacts = $post->getContacts();
 		$comments = $post->getComments();
-		$userPicture = $this->getUserPicture($dimension_user_picture, $user);
+		$userPicture = $this->getServerUrl() . $this->getUserPicture($dimension_user_picture, $user);
 		$displayName = ucwords($this->getUserDisplayName($user));
 		$timeInterval = $this->getTimeInterval($post->getPublished());
 		$published = $post->getPublished()->getTimestamp();
@@ -563,7 +563,7 @@ class BidController extends AbstractActionController
 				$cmt_created = $comment->getCreated();
 				$cmt_detail = stripcslashes($comment->getDetail());
 				$cmt_user = $comment->getUser();
-				$cmt_userPicture = $this->getUserPicture('xs', $cmt_user);
+				$cmt_userPicture = $this->getServerUrl() . $this->getUserPicture('xs', $cmt_user);
 				$cmt_displayName = ucwords($this->getUserDisplayName($cmt_user));
 				$cmt_timeInterval = $this->getTimeInterval($cmt_created);
 				if ($count < $max_shown_comment - 1) {
@@ -650,6 +650,13 @@ class BidController extends AbstractActionController
     		}
     	} 
     	return false;       
+    }
+    
+ 	private function getServerUrl()
+    {
+    	$serverUrl = $this->getServiceLocator()->get('ViewHelperManager')->get('serverUrl')->__invoke();
+        $basePath = $this->getServiceLocator()->get('ViewHelperManager')->get('basePath')->__invoke();
+        return $serverUrl . $basePath;
     }
     
 	private function getUserPicture($dimension, User $user = null)

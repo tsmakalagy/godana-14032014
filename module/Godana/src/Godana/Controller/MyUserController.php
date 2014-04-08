@@ -132,6 +132,8 @@ class MyUserController extends AbstractActionController
 		$message = $mailService->createHtmlMessage($from, $to, $subject, $viewTemplate, $values);   
 		$mailService->send($message);*/
     	
+    	
+    	
     	return new ViewModel();
     }
     
@@ -177,15 +179,19 @@ class MyUserController extends AbstractActionController
     		
     	}
     	
-    	
     	$this->getServiceLocator()->get('Application')
         	->getEventManager()->attach(\Zend\Mvc\MvcEvent::EVENT_RENDER, 
         		function($event){
+        			$application = $event->getApplication();
+        			$serverUrl = $application->getServiceManager()->get('ViewHelperManager')->get('serverUrl')->__invoke();
+        			$router = $event->getRouter();
         			$routeParams = $event->getRouteMatch()->getParams();
         			$lang = $routeParams['lang'];
-        			$headerLine = "refresh:5;url=/" . $lang . '/user/login';
+        			$url = $router->assemble($routeParams, array('name' => 'zfcuser/login'));
+        			$url = $serverUrl . $url;
+        			$headerLine = "refresh:5;url=" . $url;
      				$event->getResponse()->getHeaders()->addHeaderLine($headerLine);
- 				}, -10000);    	 
+ 				}, -10000);   	 
     	return new ViewModel();
     }
     

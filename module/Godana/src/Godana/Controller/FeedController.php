@@ -420,6 +420,13 @@ class FeedController extends AbstractActionController
         return $displayName;
     }
     
+    private function getServerUrl()
+    {
+    	$serverUrl = $this->getServiceLocator()->get('ViewHelperManager')->get('serverUrl')->__invoke();
+        $basePath = $this->getServiceLocator()->get('ViewHelperManager')->get('basePath')->__invoke();
+        return $serverUrl . $basePath;
+    }
+    
     private function createCommentDiv($comment, $dimension_user_picture)
     {
     	$translator = $this->getServiceLocator()->get('translator');
@@ -428,7 +435,7 @@ class FeedController extends AbstractActionController
 		$cmt_created = $comment->getCreated();
 		$cmt_detail = stripcslashes($comment->getDetail());
 		$cmt_user = $comment->getUser();
-		$cmt_userPicture = $this->getUserPicture('xs', $cmt_user);
+		$cmt_userPicture = $this->getServerUrl() . $this->getUserPicture('xs', $cmt_user);
 		$cmt_displayName = ucwords($this->getUserDisplayName($cmt_user));
 		$cmt_timeInterval = $this->getTimeInterval($cmt_created);
 		
@@ -461,7 +468,7 @@ class FeedController extends AbstractActionController
 		$postIdent = $post->getIdent();
 		$user = $post->getUser();
 		$comments = $post->getComments();
-		$userPicture = $this->getUserPicture($dimension_user_picture, $user);
+		$userPicture = $this->getServerUrl() . $this->getUserPicture($dimension_user_picture, $user);
 		$displayName = ucwords($this->getUserDisplayName($user));
 		$timeInterval = $this->getTimeInterval($post->getPublished());
 		$published = $post->getPublished()->getTimestamp();
