@@ -128,7 +128,7 @@ htmlspecialchars('" class="gdn_text" name="cooperative-form[contacts][__placehol
 			->appendFile($this->basePath() . '/js/select2.min.js')?>
 
 <script type="text/javascript">
-var url = "<?=$this->basePath();?>/admin/cooperative/line/add";
+var url = "<?=$this->url('admin/cooperative/line_add', array(), array(), true); ?>";
 $(function() {	
 	$(".cooperative-select").select2({
 		minimumResultsForSearch: 10

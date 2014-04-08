@@ -305,6 +305,7 @@ echo "has-error" ?>">
             ->appendFile($this->basePath() . '/js/jquery.fileupload-audio.js')
             ->appendFile($this->basePath() . '/js/jquery.Jcrop.min.js');?>
 <script type="text/javascript">
+var city_url = "<?=$this->url('admin/shop_admin/city', array(), array(), true); ?>";
 $(function() {
 	$(".chosen-select").select2({
 		minimumResultsForSearch: 10
@@ -324,7 +325,7 @@ $(function() {
 		placeholder: "Search for a city",
 	    minimumInputLength: 3,
 	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
-	        url: "/admin/shop/city",
+	        url: city_url,
 	        dataType: 'json',
 	        quietMillis: 100,
 	        data: function (term, page) {

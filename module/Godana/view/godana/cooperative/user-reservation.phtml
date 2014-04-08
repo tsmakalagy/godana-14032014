@@ -79,6 +79,7 @@
 			->appendFile($this->basePath() . '/js/moment-with-langs.min.js')
 			->appendFile($this->basePath() . '/js/DT_bootstrap.js');?>
 <script type="text/javascript">
+var url = "<?=$this->url('tools/transportation_reservation', array(), array(), true); ?>";
 $(document).ready(function() {
 	$('#list_reservation_board').dataTable( {
 		"sDom": "<'row'<'col-md-6 col-xs-12'l><'col-md-6 col-xs-12'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
@@ -104,7 +105,7 @@ $(document).ready(function() {
 		placeholder: "Select zone",
 		minimumResultsForSearch: 10,
 		ajax: {
-	        url: "/tools/transportation/reservation?type=zone",
+	        url: url+"?type=zone",
 	        dataType: 'json',
 	        quietMillis: 100,
 	        
@@ -119,7 +120,7 @@ $(document).ready(function() {
 				placeholder: "Select line",
 				minimumResultsForSearch: 10,
 				ajax: {
-					url: "/tools/transportation/reservation?type=line&zoneId="+zoneId,
+					url: url+"?type=line&zoneId="+zoneId,
 			        dataType: 'json',
 			        quietMillis: 100,
 			        
@@ -135,7 +136,7 @@ $(document).ready(function() {
 		placeholder: "Select line",
 		minimumResultsForSearch: 10,
 		ajax: {
-	        url: "/tools/transportation/reservation?type=line&zoneId="+zoneId,
+	        url: url+"?type=line&zoneId="+zoneId,
 	        dataType: 'json',
 	        quietMillis: 100,
 	        

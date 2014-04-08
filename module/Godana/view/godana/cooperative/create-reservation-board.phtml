@@ -114,7 +114,7 @@ echo "has-error" ?>">
 //			->appendFile($this->basePath() . '/js/locales/bootstrap-datepicker.fr.js');?>
 
 <script type="text/javascript">
-var url = "<?=$this->basePath();?>/admin/cooperative/car/reservation/ajax";
+var url = "<?=$this->url('admin/cooperative/reservation_car_ajax', array(), array(), true); ?>";
 $(function() {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);

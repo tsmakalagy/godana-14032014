@@ -111,7 +111,7 @@ echo "has-error" ?>">
 			->appendFile($this->basePath() . '/js/select2.min.js')?>
 			
 <script type="text/javascript">
-var url = "<?=$this->basePath();?>/admin/cooperative/car/add";
+var url = "<?=$this->url('admin/cooperative/car_add', array(), array(), true); ?>";
 $(function() {
 	$(".cooperative-select").select2({
 		minimumResultsForSearch: 10

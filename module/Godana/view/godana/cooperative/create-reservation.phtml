@@ -242,7 +242,7 @@ echo "has-error" ?>">
 			->appendFile($this->basePath() . '/js/select2.min.js');?>
 
 <script type="text/javascript">
-var url = "<?=$this->basePath();?>/admin/cooperative/reservation/ajax";
+var url = "<?=$this->url('admin/cooperative/reservation_ajax', array(), array(), true); ?>";
 $(function() {	
 	$(".zone-select").select2({
 		placeholder: "Select zone",

@@ -399,8 +399,9 @@
 var urlForm = "<?=$this->url('tools/feed/add_ajax', array(), array(), true); ?>";
 var commentUrl = "<?=$this->url('feed-comment', array(), array(), true); ?>";
 var loadAjaxUrl = "<?=$this->url('tools/feed/load_ajax', array(), array(), true); ?>";
+var tagUrl = "<?=$this->url('tools/feed/ajax_tag', array(), array(), true); ?>";
 var msnry = {};
-var loadingUrl = "<?=$this->basePath() .'/img/load.gif' ?>";
+var loadingUrl = "<?=$this->serverUrl() . $this->basePath() .'/img/load.gif' ?>";
 var loadingBlock = '<div class="panel panel-default loading-panel center-block"><div class="panel-body">';
 loadingBlock += "<img src='"+loadingUrl+"'>";
 loadingBlock += "</div>";
@@ -424,7 +425,7 @@ $(function() {
 		},
 		multiple: true,
 		ajax: {
-			url: '/tools/feed/ajax/tag',
+			url: tagUrl,
 		    dataType: "json",
 		    data: function(term, page) {
 		    	return {
